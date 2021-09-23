@@ -8,9 +8,9 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
-@Table(name = "orders")
 @Getter
 @Setter
+@Table(name = "orders")
 @NamedQueries({
         @NamedQuery(name = "findAllOrdersQuery", query = "SELECT o FROM Order o")
 })

@@ -8,9 +8,9 @@ import lombok.Setter;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "items")
 @Getter
 @Setter
+@Table(name = "items")
 public class Item {
 
     enum Gender {

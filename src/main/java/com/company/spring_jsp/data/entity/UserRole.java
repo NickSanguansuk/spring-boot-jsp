@@ -8,9 +8,9 @@ import lombok.Setter;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "user_roles")
 @Getter
 @Setter
+@Table(name = "user_roles")
 @NamedQueries({
         @NamedQuery(name = "findAllUserRolesQuery", query = "SELECT ur FROM UserRole ur")
 })

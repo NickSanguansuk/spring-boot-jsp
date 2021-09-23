@@ -9,9 +9,9 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "products")
 @Getter
 @Setter
+@Table(name = "products")
 public class Product {
     // Data
     @Id

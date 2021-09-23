@@ -11,9 +11,9 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
-@Table(name = "users")
 @Getter
 @Setter
+@Table(name = "users")
 @NamedQueries({
         @NamedQuery(name = "findAllUsersQuery", query = "SELECT u FROM User u"),
         @NamedQuery(name = "findUsersByLastNameQuery", query = "SELECT u FROM User u WHERE u.lastName = :lastNameValue")
