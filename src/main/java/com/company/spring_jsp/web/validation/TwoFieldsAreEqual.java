@@ -5,14 +5,19 @@ import javax.validation.Payload;
 import java.lang.annotation.*;
 
 @Documented
-@Constraint(validatedBy = EmailUniqueImpl.class)
-@Target({ElementType.METHOD, ElementType.FIELD})
+@Constraint(validatedBy = TwoFieldsAreEqualImpl.class)
+@Target({ElementType.TYPE, ElementType.ANNOTATION_TYPE})
 @Retention(RetentionPolicy.RUNTIME)
-public @interface EmailUnique {
+public @interface TwoFieldsAreEqual {
 
-    String message() default "{UserEmailUnique}";
+    String fieldOneName();
+
+    String fieldTwoName();
+
+    String message() default "{TwoFieldsAreEqual}";
 
     Class<?>[] groups() default {};
 
     Class<? extends Payload>[] payload() default {};
 }
+

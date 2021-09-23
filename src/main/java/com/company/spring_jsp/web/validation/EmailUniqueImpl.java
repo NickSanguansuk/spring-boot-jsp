@@ -1,6 +1,5 @@
 package com.company.spring_jsp.web.validation;
 
-
 import com.company.spring_jsp.data.dao.UserDao;
 import com.company.spring_jsp.data.entity.User;
 import org.apache.commons.lang3.StringUtils;
@@ -11,9 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-public class EmailUniqueImp implements ConstraintValidator<EmailUnique, String> {
+public class EmailUniqueImpl implements ConstraintValidator<EmailUnique, String> {
 
-    public static final Logger LOG = LoggerFactory.getLogger(EmailUniqueImp.class);
+    public static final Logger LOG = LoggerFactory.getLogger(EmailUniqueImpl.class);
 
     @Autowired
     private UserDao userDao;
@@ -34,5 +33,18 @@ public class EmailUniqueImp implements ConstraintValidator<EmailUnique, String> 
         return (user == null);
     }
 
-
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

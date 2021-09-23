@@ -1,11 +1,13 @@
 package com.company.spring_jsp.web.form;
 
 import com.company.spring_jsp.web.validation.EmailUnique;
+import com.company.spring_jsp.web.validation.TwoFieldsAreEqual;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+@TwoFieldsAreEqual(fieldOneName = "confirmPassword", fieldTwoName = "password", message = "Password and Confirm Password must be the same.")
 public class CreateUser2Form {
     // Data
     @NotEmpty(message = "First Name cannot be empty.")
