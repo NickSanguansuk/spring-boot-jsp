@@ -12,7 +12,7 @@ public @interface EmailUnique {
 
     String message() default "{UserEmailUnique}";
 
-    Class<?>[] group() default {};
+    Class<?>[] groups() default {};
 
     Class<? extends Payload>[] payload() default {};
 }
