@@ -1,4 +1,4 @@
-package com.company.spring_jsp.validation;
+package com.company.spring_jsp.web.validation;
 
 
 import com.company.spring_jsp.data.dao.UserDao;

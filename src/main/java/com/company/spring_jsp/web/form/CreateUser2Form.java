@@ -1,5 +1,7 @@
 package com.company.spring_jsp.web.form;
 
+import com.company.spring_jsp.web.validation.EmailUnique;
+
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
@@ -16,6 +18,7 @@ public class CreateUser2Form {
     @NotEmpty(message = "Email cannot be empty.")
     //@Email(message = "@Email is invalid.")
     @Pattern(regexp = "^.*@.*$", message = "Email format is invalid.")
+    @EmailUnique(message = "Email already exists in database")
     private String email;
 
     //@NotNull

@@ -1,4 +1,4 @@
-package com.company.spring_jsp.validation;
+package com.company.spring_jsp.web.validation;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;
