@@ -32,7 +32,7 @@ public class Product {
     //@ManyToMany(mappedBy = "productsInOrder")
     //List<Order> orders;
 
-    @OneToMany(mappedBy = "productObject")
+    @OneToMany(mappedBy = "productObject", fetch = FetchType.LAZY)
     private List<OrderDetail> orderDetails;
 
     // Constructors

@@ -63,7 +63,7 @@ public class User {
     private String zipCode;
 
     //@Basic(fetch = FetchType.LAZY)
-    @OneToMany(mappedBy = "userObject")
+    @OneToMany(mappedBy = "userObject", fetch = FetchType.LAZY)
     //@OneToMany(targetEntity = UserRole.class) // Error
     private List<UserRole> userRoles = new ArrayList<>();
 

@@ -52,7 +52,7 @@ public class Order {
     //        inverseJoinColumns = @JoinColumn(name = "productId"))
     //List<Product> productsInOrder;
 
-    @OneToMany(mappedBy = "orderObject")
+    @OneToMany(mappedBy = "orderObject", fetch = FetchType.LAZY)
     private List<OrderDetail> orderDetails;
 
     // Constructors
