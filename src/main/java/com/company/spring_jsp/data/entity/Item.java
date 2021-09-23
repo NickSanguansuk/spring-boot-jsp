@@ -2,10 +2,15 @@ package com.company.spring_jsp.data.entity;
 
 //import jakarta.persistence.*;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "items")
+@Getter
+@Setter
 public class Item {
 
     enum Gender {
@@ -49,70 +54,70 @@ public class Item {
     public Item() {
     }
 
-    // Getters and Setters
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getBrand() {
-        return brand;
-    }
-
-    public void setBrand(String brand) {
-        this.brand = brand;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Gender getGender() {
-        return gender;
-    }
-
-    public void setGender(Gender gender) {
-        this.gender = gender;
-    }
-
-    public Category getCategory() {
-        return category;
-    }
-
-    public void setCategory(Category category) {
-        this.category = category;
-    }
-
-    public Double getStarRating() {
-        return starRating;
-    }
-
-    public void setStarRating(Double starRating) {
-        this.starRating = starRating;
-    }
-
-    public Integer getReviewCount() {
-        return reviewCount;
-    }
-
-    public void setReviewCount(Integer reviewCount) {
-        this.reviewCount = reviewCount;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
+    //// Getters and Setters
+    //public Integer getId() {
+    //    return id;
+    //}
+    //
+    //public void setId(Integer id) {
+    //    this.id = id;
+    //}
+    //
+    //public String getBrand() {
+    //    return brand;
+    //}
+    //
+    //public void setBrand(String brand) {
+    //    this.brand = brand;
+    //}
+    //
+    //public String getName() {
+    //    return name;
+    //}
+    //
+    //public void setName(String name) {
+    //    this.name = name;
+    //}
+    //
+    //public Gender getGender() {
+    //    return gender;
+    //}
+    //
+    //public void setGender(Gender gender) {
+    //    this.gender = gender;
+    //}
+    //
+    //public Category getCategory() {
+    //    return category;
+    //}
+    //
+    //public void setCategory(Category category) {
+    //    this.category = category;
+    //}
+    //
+    //public Double getStarRating() {
+    //    return starRating;
+    //}
+    //
+    //public void setStarRating(Double starRating) {
+    //    this.starRating = starRating;
+    //}
+    //
+    //public Integer getReviewCount() {
+    //    return reviewCount;
+    //}
+    //
+    //public void setReviewCount(Integer reviewCount) {
+    //    this.reviewCount = reviewCount;
+    //}
+    //
+    //public String getDescription() {
+    //    return description;
+    //}
+    //
+    //public void setDescription(String description) {
+    //    this.description = description;
+    //}
 
     // Methods
     @Override

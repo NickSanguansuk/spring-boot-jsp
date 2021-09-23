@@ -1,9 +1,14 @@
 package com.company.spring_jsp.data.entity;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "order_details")
+@Getter
+@Setter
 public class OrderDetail {
     // Data
     //@Id
@@ -34,62 +39,62 @@ public class OrderDetail {
     public OrderDetail() {
     }
 
-    // Getters and Setters
-    //public Integer getId() {
-    //    return id;
+    //// Getters and Setters
+    ////public Integer getId() {
+    ////    return id;
+    ////}
+    ////
+    ////public void setId(Integer id) {
+    ////    this.id = id;
+    ////}
+    //
+    ////public Integer getOrderId() {
+    ////    return orderId;
+    ////}
+    ////
+    ////public void setOrderId(Integer orderId) {
+    ////    this.orderId = orderId;
+    ////}
+    ////
+    ////public Integer getProductId() {
+    ////    return productId;
+    ////}
+    ////
+    ////public void setProductId(Integer productId) {
+    ////    this.productId = productId;
+    ////}
+    //
+    //public OrderDetailKey getKey() {
+    //    return key;
     //}
     //
-    //public void setId(Integer id) {
-    //    this.id = id;
-    //}
-
-    //public Integer getOrderId() {
-    //    return orderId;
+    //public void setKey(OrderDetailKey key) {
+    //    this.key = key;
     //}
     //
-    //public void setOrderId(Integer orderId) {
-    //    this.orderId = orderId;
+    //public Order getOrderObject() {
+    //    return orderObject;
     //}
     //
-    //public Integer getProductId() {
-    //    return productId;
+    //public void setOrderObject(Order orderObject) {
+    //    this.orderObject = orderObject;
     //}
     //
-    //public void setProductId(Integer productId) {
-    //    this.productId = productId;
+    //public Product getProductObject() {
+    //    return productObject;
     //}
-
-    public OrderDetailKey getKey() {
-        return key;
-    }
-
-    public void setKey(OrderDetailKey key) {
-        this.key = key;
-    }
-
-    public Order getOrderObject() {
-        return orderObject;
-    }
-
-    public void setOrderObject(Order orderObject) {
-        this.orderObject = orderObject;
-    }
-
-    public Product getProductObject() {
-        return productObject;
-    }
-
-    public void setProductObject(Product productObject) {
-        this.productObject = productObject;
-    }
-
-    public Integer getQuantityOrdered() {
-        return quantityOrdered;
-    }
-
-    public void setQuantityOrdered(Integer quantityOrdered) {
-        this.quantityOrdered = quantityOrdered;
-    }
+    //
+    //public void setProductObject(Product productObject) {
+    //    this.productObject = productObject;
+    //}
+    //
+    //public Integer getQuantityOrdered() {
+    //    return quantityOrdered;
+    //}
+    //
+    //public void setQuantityOrdered(Integer quantityOrdered) {
+    //    this.quantityOrdered = quantityOrdered;
+    //}
 
     // Methods
     @Override

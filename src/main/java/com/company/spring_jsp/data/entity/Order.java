@@ -1,11 +1,16 @@
 package com.company.spring_jsp.data.entity;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
 @Table(name = "orders")
+@Getter
+@Setter
 @NamedQueries({
         @NamedQuery(name = "findAllOrdersQuery", query = "SELECT o FROM Order o")
 })
@@ -59,78 +64,78 @@ public class Order {
     public Order() {
     }
 
-    // Getters and Setters
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Integer getCustomerId() {
-        return customerId;
-    }
-
-    public void setCustomerId(Integer customerId) {
-        this.customerId = customerId;
-    }
-
-    public Status getStatus() {
-        return status;
-    }
-
-    public void setStatus(Status status) {
-        this.status = status;
-    }
-
-    //public Date getOrderedDate() {
+    //// Getters and Setters
+    //public Integer getId() {
+    //    return id;
+    //}
+    //
+    //public void setId(Integer id) {
+    //    this.id = id;
+    //}
+    //
+    //public Integer getCustomerId() {
+    //    return customerId;
+    //}
+    //
+    //public void setCustomerId(Integer customerId) {
+    //    this.customerId = customerId;
+    //}
+    //
+    //public Status getStatus() {
+    //    return status;
+    //}
+    //
+    //public void setStatus(Status status) {
+    //    this.status = status;
+    //}
+    //
+    ////public Date getOrderedDate() {
+    ////    return orderedDate;
+    ////}
+    ////
+    ////public void setOrderedDate(Date orderedDate) {
+    ////    this.orderedDate = orderedDate;
+    ////}
+    ////
+    ////public Date getShippedDate() {
+    ////    return shippedDate;
+    ////}
+    ////
+    ////public void setShippedDate(Date shippedDate) {
+    ////    this.shippedDate = shippedDate;
+    ////}
+    //
+    //public LocalDateTime getOrderedDate() {
     //    return orderedDate;
     //}
     //
-    //public void setOrderedDate(Date orderedDate) {
+    //public void setOrderedDate(LocalDateTime orderedDate) {
     //    this.orderedDate = orderedDate;
     //}
     //
-    //public Date getShippedDate() {
+    //public LocalDateTime getShippedDate() {
     //    return shippedDate;
     //}
     //
-    //public void setShippedDate(Date shippedDate) {
+    //public void setShippedDate(LocalDateTime shippedDate) {
     //    this.shippedDate = shippedDate;
     //}
-
-    public LocalDateTime getOrderedDate() {
-        return orderedDate;
-    }
-
-    public void setOrderedDate(LocalDateTime orderedDate) {
-        this.orderedDate = orderedDate;
-    }
-
-    public LocalDateTime getShippedDate() {
-        return shippedDate;
-    }
-
-    public void setShippedDate(LocalDateTime shippedDate) {
-        this.shippedDate = shippedDate;
-    }
-
-    public String getComments() {
-        return comments;
-    }
-
-    public void setComments(String comments) {
-        this.comments = comments;
-    }
-
-    public List<OrderDetail> getOrderDetails() {
-        return orderDetails;
-    }
-
-    public void setOrderDetails(List<OrderDetail> orderDetails) {
-        this.orderDetails = orderDetails;
-    }
+    //
+    //public String getComments() {
+    //    return comments;
+    //}
+    //
+    //public void setComments(String comments) {
+    //    this.comments = comments;
+    //}
+    //
+    //public List<OrderDetail> getOrderDetails() {
+    //    return orderDetails;
+    //}
+    //
+    //public void setOrderDetails(List<OrderDetail> orderDetails) {
+    //    this.orderDetails = orderDetails;
+    //}
 
     // Methods
     //@Override
@@ -144,7 +149,6 @@ public class Order {
     //            ", comments='" + comments + '\'' +
     //            '}';
     //}
-
     @Override
     public String toString() {
         return "Order{" +

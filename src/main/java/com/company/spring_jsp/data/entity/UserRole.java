@@ -2,10 +2,15 @@ package com.company.spring_jsp.data.entity;
 
 //import jakarta.persistence.*;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "user_roles")
+@Getter
+@Setter
 @NamedQueries({
         @NamedQuery(name = "findAllUserRolesQuery", query = "SELECT ur FROM UserRole ur")
 })
@@ -38,44 +43,44 @@ public class UserRole {
     public UserRole() {
     }
 
-    // Getters and Setters
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    //public Integer getUserId() {
-    //    return userId;
+    //// Getters and Setters
+    //public Integer getId() {
+    //    return id;
     //}
     //
-    //public void setUserId(Integer userId) {
-    //    this.userId = userId;
+    //public void setId(Integer id) {
+    //    this.id = id;
     //}
-
-    public User getUserObject() {
-        return userObject;
-    }
-
-    public void setUserObject(User userObject) {
-        this.userObject = userObject;
-    }
-
-    //public String getRole() {
+    //
+    ////public Integer getUserId() {
+    ////    return userId;
+    ////}
+    ////
+    ////public void setUserId(Integer userId) {
+    ////    this.userId = userId;
+    ////}
+    //
+    //public User getUserObject() {
+    //    return userObject;
+    //}
+    //
+    //public void setUserObject(User userObject) {
+    //    this.userObject = userObject;
+    //}
+    //
+    ////public String getRole() {
+    ////    return role;
+    ////}
+    //public Role getRole() {
     //    return role;
     //}
-    public Role getRole() {
-        return role;
-    }
-
-    //public void setRole(String role) {
+    //
+    ////public void setRole(String role) {
+    ////    this.role = role;
+    ////}
+    //public void setRole(Role role) {
     //    this.role = role;
     //}
-    public void setRole(Role role) {
-        this.role = role;
-    }
 
     // Methods
     //@Override
@@ -86,7 +91,6 @@ public class UserRole {
     //            ", role='" + role + '\'' +
     //            '}';
     //}
-
     @Override
     public String toString() {
         return "UserRole{" +
