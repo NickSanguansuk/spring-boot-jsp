@@ -2,6 +2,8 @@ package com.company.spring_jsp.data.entity;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -149,18 +151,21 @@ public class Order {
     //            ", comments='" + comments + '\'' +
     //            '}';
     //}
+    //@Override
+    //public String toString() {
+    //    return "Order{" +
+    //            "id=" + id +
+    //            ", customerId=" + customerId +
+    //            ", status=" + status +
+    //            ", orderedDate=" + orderedDate +
+    //            ", shippedDate=" + shippedDate +
+    //            ", comments='" + comments + '\'' +
+    //            ", orderDetails=" + orderDetails +
+    //            '}';
+    //}
     @Override
     public String toString() {
-        return "Order{" +
-                "id=" + id +
-                ", customerId=" + customerId +
-                ", status=" + status +
-                ", orderedDate=" + orderedDate +
-                ", shippedDate=" + shippedDate +
-                ", comments='" + comments + '\'' +
-                ", orderDetails=" + orderDetails +
-                '}';
+        return ReflectionToStringBuilder.toString(this, ToStringStyle.MULTI_LINE_STYLE);
     }
-
 
 }

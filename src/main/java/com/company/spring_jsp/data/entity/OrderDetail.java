@@ -2,6 +2,8 @@ package com.company.spring_jsp.data.entity;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 
 import javax.persistence.*;
 
@@ -97,17 +99,20 @@ public class OrderDetail {
     //}
 
     // Methods
+    //@Override
+    //public String toString() {
+    //    return "OrderDetail{" +
+    //            "key=" + key +
+    //            //", orderId=" + orderId +
+    //            ", orderId=" + orderObject.getId() +
+    //            //", productId=" + productId +
+    //            ", productId=" + productObject.getId() +
+    //            ", quantityOrdered=" + quantityOrdered +
+    //            '}';
+    //}
     @Override
     public String toString() {
-        return "OrderDetail{" +
-                "key=" + key +
-                //", orderId=" + orderId +
-                ", orderId=" + orderObject.getId() +
-                //", productId=" + productId +
-                ", productId=" + productObject.getId() +
-                ", quantityOrdered=" + quantityOrdered +
-                '}';
+        return ReflectionToStringBuilder.toString(this, ToStringStyle.MULTI_LINE_STYLE);
     }
-
 
 }

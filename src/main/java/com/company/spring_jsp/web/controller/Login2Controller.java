@@ -73,6 +73,8 @@ public class Login2Controller {
         user.setState(form.getState());
         user.setZipCode(form.getZipCode());
 
+        System.out.println(user);
+
         userDao.save(user); // This line is magic
 
         System.out.println("Added new User to the Database.");

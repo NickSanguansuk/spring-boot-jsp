@@ -4,6 +4,8 @@ package com.company.spring_jsp.data.entity;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 
 import javax.persistence.*;
 
@@ -91,14 +93,18 @@ public class UserRole {
     //            ", role='" + role + '\'' +
     //            '}';
     //}
+    //@Override
+    //public String toString() {
+    //    return "UserRole{" +
+    //            "id=" + id +
+    //            //", userId=" + userId +
+    //            ", userId=" + userObject.getId() +
+    //            ", role='" + role + '\'' +
+    //            '}';
+    //}
     @Override
     public String toString() {
-        return "UserRole{" +
-                "id=" + id +
-                //", userId=" + userId +
-                ", userId=" + userObject.getId() +
-                ", role='" + role + '\'' +
-                '}';
+        return ReflectionToStringBuilder.toString(this, ToStringStyle.MULTI_LINE_STYLE);
     }
 
 }

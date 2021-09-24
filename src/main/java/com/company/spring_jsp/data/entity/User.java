@@ -3,7 +3,10 @@ package com.company.spring_jsp.data.entity;
 //import jakarta.persistence.*;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -13,6 +16,7 @@ import java.util.Objects;
 @Entity
 @Getter
 @Setter
+//@NoArgsConstructor
 @Table(name = "users")
 @NamedQueries({
         @NamedQuery(name = "findAllUsersQuery", query = "SELECT u FROM User u"),
@@ -166,21 +170,25 @@ public class User {
     //}
 
     // Methods
+    //@Override
+    //public String toString() {
+    //    return "User{" +
+    //            "id=" + id +
+    //            ", firstName='" + firstName + '\'' +
+    //            ", lastName='" + lastName + '\'' +
+    //            ", email='" + email + '\'' +
+    //            ", password='" + password + '\'' +
+    //            ", phone='" + phone + '\'' +
+    //            ", address='" + address + '\'' +
+    //            ", city='" + city + '\'' +
+    //            ", state='" + state + '\'' +
+    //            ", zipCode='" + zipCode + '\'' +
+    //            ", userRoles=" + userRoles +
+    //            '}';
+    //}
     @Override
     public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                ", phone='" + phone + '\'' +
-                ", address='" + address + '\'' +
-                ", city='" + city + '\'' +
-                ", state='" + state + '\'' +
-                ", zipCode='" + zipCode + '\'' +
-                ", userRoles=" + userRoles +
-                '}';
+        return ReflectionToStringBuilder.toString(this, ToStringStyle.MULTI_LINE_STYLE);
     }
 
     @Override
