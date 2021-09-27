@@ -4,6 +4,7 @@ import com.company.spring_jsp.data.dao.UserDao;
 import com.company.spring_jsp.data.entity.User;
 import com.company.spring_jsp.web.form.CreateUser2Form;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.io.IOException;
@@ -19,10 +21,25 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/login2")
+//@PreAuthorize("hasAnyAuthority('ADMIN', 'ANOTHER')")
 public class Login2Controller {
+
+    // 1 Finds all objects with annotations
+    // 2 Does all @Autowired
+    // 3 @PostConstruct
 
     @Autowired
     private UserDao userDao;
+
+    // Constructors
+    public Login2Controller() {
+        System.out.println("In constructor, UserDao instance = " + userDao);
+    }
+
+    @PostConstruct
+    public void init() {
+        System.out.println("In @PostConstruct, UserDao instance = " + userDao);
+    }
 
     @RequestMapping(value = "/create-user", method = RequestMethod.GET)
     public ModelAndView createUserGet() {
@@ -36,6 +53,7 @@ public class Login2Controller {
     }
 
     @RequestMapping(value = "/create-user", method = RequestMethod.POST)
+    //@PreAuthorize("hasAnyAuthority('ADMIN', 'ANOTHER')")
     public ModelAndView createUserPost(@Valid CreateUser2Form form, BindingResult bindingResult, HttpSession session) throws IOException {
         System.out.println("Create User 2 page using POST.");
 
@@ -128,7 +146,7 @@ public class Login2Controller {
         if (session.getAttribute("userInfo") != null) {
             // user is logged in
             System.out.println("userInfo is not null.");
-            User user = (User)session.getAttribute("userInfo");
+            User user = (User) session.getAttribute("userInfo");
             String messageStr = user.getFirstName() + " " + user.getLastName() + " (" + user.getEmail() + ")";
             result.addObject("welcomeUserMessage", messageStr);
         } else {
