@@ -106,30 +106,19 @@ public class Product {
     // Methods
     //@Override
     //public String toString() {
-    //    return "Product{" +
-    //            "id=" + id +
-    //            ", itemId=" + itemId +
-    //            ", color='" + color + '\'' +
-    //            ", size=" + size +
-    //            ", price=" + price +
-    //            ", availability=" + availability +
-    //            '}';
-    //}
-    //@Override
-    //public String toString() {
-    //    return "Product{" +
-    //            "id=" + id +
-    //            ", itemId=" + itemId +
-    //            ", color='" + color + '\'' +
-    //            ", size=" + size +
-    //            ", price=" + price +
-    //            ", availability=" + availability +
-    //            ", orderDetails=" + orderDetails +
-    //            '}';
+    //    return ReflectionToStringBuilder.toString(this, ToStringStyle.MULTI_LINE_STYLE);
     //}
     @Override
     public String toString() {
-        return ReflectionToStringBuilder.toString(this, ToStringStyle.MULTI_LINE_STYLE);
+        return "Product{" +
+                "id=" + id +
+                ", itemId=" + itemId +
+                ", color='" + color + '\'' +
+                ", size=" + size +
+                ", price=" + price +
+                ", availability=" + availability +
+                ", orderDetails=" + orderDetails +
+                '}';
     }
 
 }

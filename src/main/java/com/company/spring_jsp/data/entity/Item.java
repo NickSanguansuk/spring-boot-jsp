@@ -124,20 +124,20 @@ public class Item {
     // Methods
     //@Override
     //public String toString() {
-    //    return "Item{" +
-    //            "id=" + id +
-    //            ", brand='" + brand + '\'' +
-    //            ", name='" + name + '\'' +
-    //            ", gender=" + gender +
-    //            ", category=" + category +
-    //            ", starRating=" + starRating +
-    //            ", reviewCount=" + reviewCount +
-    //            ", description='" + description + '\'' +
-    //            '}';
+    //    return ReflectionToStringBuilder.toString(this, ToStringStyle.MULTI_LINE_STYLE);
     //}
     @Override
     public String toString() {
-        return ReflectionToStringBuilder.toString(this, ToStringStyle.MULTI_LINE_STYLE);
+        return "Item{" +
+                "id=" + id +
+                ", brand='" + brand + '\'' +
+                ", name='" + name + '\'' +
+                ", gender=" + gender +
+                ", category=" + category +
+                ", starRating=" + starRating +
+                ", reviewCount=" + reviewCount +
+                ", description='" + description + '\'' +
+                '}';
     }
 
 }

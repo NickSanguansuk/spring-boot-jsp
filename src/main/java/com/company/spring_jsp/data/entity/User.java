@@ -172,23 +172,23 @@ public class User {
     // Methods
     //@Override
     //public String toString() {
-    //    return "User{" +
-    //            "id=" + id +
-    //            ", firstName='" + firstName + '\'' +
-    //            ", lastName='" + lastName + '\'' +
-    //            ", email='" + email + '\'' +
-    //            ", password='" + password + '\'' +
-    //            ", phone='" + phone + '\'' +
-    //            ", address='" + address + '\'' +
-    //            ", city='" + city + '\'' +
-    //            ", state='" + state + '\'' +
-    //            ", zipCode='" + zipCode + '\'' +
-    //            ", userRoles=" + userRoles +
-    //            '}';
+    //    return ReflectionToStringBuilder.toString(this, ToStringStyle.MULTI_LINE_STYLE);
     //}
     @Override
     public String toString() {
-        return ReflectionToStringBuilder.toString(this, ToStringStyle.MULTI_LINE_STYLE);
+        return "User{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", phone='" + phone + '\'' +
+                ", address='" + address + '\'' +
+                ", city='" + city + '\'' +
+                ", state='" + state + '\'' +
+                ", zipCode='" + zipCode + '\'' +
+                ", userRoles=" + userRoles +
+                '}';
     }
 
     @Override

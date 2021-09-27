@@ -2,6 +2,7 @@ package com.company.spring_jsp.web.controller;
 
 import com.company.spring_jsp.data.dao.UserDao;
 import com.company.spring_jsp.data.entity.User;
+import com.company.spring_jsp.data.entity.UserRole;
 import com.company.spring_jsp.web.form.CreateUser2Form;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -39,6 +40,10 @@ public class Login2Controller {
     @PostConstruct
     public void init() {
         System.out.println("In @PostConstruct, UserDao instance = " + userDao);
+
+        // Testing
+        List<UserRole> userRoles = userDao.getUserRolesById(1);
+        System.out.println(userRoles);
     }
 
     @RequestMapping(value = "/create-user", method = RequestMethod.GET)

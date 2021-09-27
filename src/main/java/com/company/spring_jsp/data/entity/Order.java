@@ -142,30 +142,19 @@ public class Order {
     // Methods
     //@Override
     //public String toString() {
-    //    return "Order{" +
-    //            "id=" + id +
-    //            ", customerId=" + customerId +
-    //            ", status=" + status +
-    //            ", orderedDate=" + orderedDate +
-    //            ", shippedDate=" + shippedDate +
-    //            ", comments='" + comments + '\'' +
-    //            '}';
-    //}
-    //@Override
-    //public String toString() {
-    //    return "Order{" +
-    //            "id=" + id +
-    //            ", customerId=" + customerId +
-    //            ", status=" + status +
-    //            ", orderedDate=" + orderedDate +
-    //            ", shippedDate=" + shippedDate +
-    //            ", comments='" + comments + '\'' +
-    //            ", orderDetails=" + orderDetails +
-    //            '}';
+    //    return ReflectionToStringBuilder.toString(this, ToStringStyle.MULTI_LINE_STYLE);
     //}
     @Override
     public String toString() {
-        return ReflectionToStringBuilder.toString(this, ToStringStyle.MULTI_LINE_STYLE);
+        return "Order{" +
+                "id=" + id +
+                ", customerId=" + customerId +
+                ", status=" + status +
+                ", orderedDate=" + orderedDate +
+                ", shippedDate=" + shippedDate +
+                ", comments='" + comments + '\'' +
+                ", orderDetails=" + orderDetails +
+                '}';
     }
 
 }

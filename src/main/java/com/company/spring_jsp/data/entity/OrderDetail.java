@@ -110,9 +110,20 @@ public class OrderDetail {
     //            ", quantityOrdered=" + quantityOrdered +
     //            '}';
     //}
+    //@Override
+    //public String toString() {
+    //    return ReflectionToStringBuilder.toString(this, ToStringStyle.MULTI_LINE_STYLE);
+    //}
     @Override
     public String toString() {
-        return ReflectionToStringBuilder.toString(this, ToStringStyle.MULTI_LINE_STYLE);
+        return "OrderDetail{" +
+                "key=" + key +
+                //", orderObject=" + orderObject +
+                ", orderId=" + orderObject.getId() +
+                //", productObject=" + productObject +
+                ", productId=" + productObject.getId() +
+                ", quantityOrdered=" + quantityOrdered +
+                '}';
     }
 
 }

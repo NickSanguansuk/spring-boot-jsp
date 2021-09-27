@@ -87,24 +87,16 @@ public class UserRole {
     // Methods
     //@Override
     //public String toString() {
-    //    return "UserRole{" +
-    //            "id=" + id +
-    //            //", userId=" + userId +
-    //            ", role='" + role + '\'' +
-    //            '}';
-    //}
-    //@Override
-    //public String toString() {
-    //    return "UserRole{" +
-    //            "id=" + id +
-    //            //", userId=" + userId +
-    //            ", userId=" + userObject.getId() +
-    //            ", role='" + role + '\'' +
-    //            '}';
+    //    return ReflectionToStringBuilder.toString(this, ToStringStyle.MULTI_LINE_STYLE);
     //}
     @Override
     public String toString() {
-        return ReflectionToStringBuilder.toString(this, ToStringStyle.MULTI_LINE_STYLE);
+        return "UserRole{" +
+                "id=" + id +
+                //", userObject=" + userObject +
+                ", userId=" + userObject.getId() +
+                ", role=" + role +
+                '}';
     }
 
 }
