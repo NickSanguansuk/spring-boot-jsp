@@ -126,6 +126,15 @@ public class Login2Controller {
     }
 
     //@RequestMapping(value = "/login", method = RequestMethod.POST)
+    //public ModelAndView inboxPost(HttpSession session) {
+    //    System.out.println("Login 2 page using POST.");
+    //
+    //    ModelAndView result = new ModelAndView("login2/login-2-jsp");
+    //
+    //    return result;
+    //}
+
+    //@RequestMapping(value = "/login", method = RequestMethod.POST)
     //public ModelAndView loginPost(LoginForm form, HttpSession session) throws IOException {
     //    System.out.println("Login 2 page using POST.");
     //
@@ -164,6 +173,15 @@ public class Login2Controller {
             System.out.println("userInfo is null.");
             result.setViewName("redirect:login");
         }
+        return result;
+    }
+
+    @RequestMapping(value = "/inbox", method = RequestMethod.POST)
+    public ModelAndView inboxPost(HttpSession session) {
+        System.out.println("Inbox 2 page using POST.");
+
+        ModelAndView result = new ModelAndView("login2/inbox-2-jsp");
+
         return result;
     }
 
