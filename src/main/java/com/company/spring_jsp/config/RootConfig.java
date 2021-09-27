@@ -3,7 +3,9 @@ package com.company.spring_jsp.config;
 import com.company.spring_jsp.data.dao.UserDao;
 import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 
 import javax.annotation.PostConstruct;
 import java.sql.Time;
@@ -27,6 +29,10 @@ public class RootConfig {
 
         //Map<String, Object> tz = userDao.query
         //System.out.println("Database global timezone = " + tz.get("globaltz") + " : session = " + tz.get("sessiontz") + );
-
     }
+
+    //@Bean(name = "propertyConfigurer")
+    //public static PropertySourcesPlaceholderConfigurer getPropertyPlaceholder() {
+    //    return new PropertySourcesPlaceholderConfigurer();
+    //}
 }

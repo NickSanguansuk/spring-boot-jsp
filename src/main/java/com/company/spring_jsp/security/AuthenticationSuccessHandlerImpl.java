@@ -21,7 +21,7 @@ public class AuthenticationSuccessHandlerImpl implements AuthenticationSuccessHa
 
 	@Override
 	public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
-		System.out.println("########## LOGIN SUCCESS ##########");
+		System.out.println("########## LOGIN SUCCESS ########## ");
 
 		//// Decide where to send the user based on requested URL
 		//SavedRequest savedRequest = new HttpSessionRequestCache().getRequest(request, response);

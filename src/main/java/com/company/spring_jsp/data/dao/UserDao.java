@@ -12,17 +12,17 @@ import java.util.Map;
 
 public interface UserDao extends JpaRepository<User, Long> {
 
-    User findById(@Param("id") Integer id);
+    User findUserById(@Param("id") Integer id);
 
-    User findByEmail(@Param("email") String email);
+    User findUserByEmail(@Param("email") String email);
 
-    //User findByConfirmEmailToken(@Param("confirmEmailToken") String confirmEmailToken);
+    //User findUserByConfirmEmailToken(@Param("confirmEmailToken") String confirmEmailToken);
 
     @Query(value = "SELECT u FROM User u WHERE u.firstName = :firstNameIn AND u.lastName = :lastNameIn")
-    List<User> findByFullName(@Param("firstName") String firstNameIn, @Param("lastName") String lastNameIn);
+    List<User> findUserByFullName(@Param("firstName") String firstNameIn, @Param("lastName") String lastNameIn);
 
     //@Query(value="SELECT u.* FROM User u WHERE u.reset_token = :token and u.reset_date > date_sub(now(), interval :hours hour)", nativeQuery = true)
-    //public User findByResetToken(@Param("token") String resetToken, @Param("hours") int hours);
+    //public User findUserByResetToken(@Param("token") String resetToken, @Param("hours") int hours);
 
     //@Query("SELECT ur FROM UserRole ur WHERE ur.userObject.id = :userId")
     //List<UserRole> getUserRolesById(Integer userId);
@@ -31,5 +31,9 @@ public interface UserDao extends JpaRepository<User, Long> {
 
     //@Query(value="SELECT @@global.time_zone as globaltz, @@session.time_zone as sessiontz, now() as now", nativeQuery = true);
     //Map<String, Object> queryTimezone();
+
+    // ---------- UserRole ----------
+    @Query("select ur from UserRole ur where ur.userObject.id = :userIdIn")
+    List<UserRole> getUserRolesById_2(Integer userIdIn);
 
 }

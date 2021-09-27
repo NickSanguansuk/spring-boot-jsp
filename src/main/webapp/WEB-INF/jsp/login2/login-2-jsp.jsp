@@ -10,32 +10,38 @@
     <%--<script type="text/javascript" src="js/script.js" defer></script>--%>
 </head>
 <body>
-<h1>Login 2 (Database) Page</h1>
-<p>Please login here.</p>
+<main>
+    <h1>Login 2 (Database) Page</h1>
+    <p>Please login here.</p>
 
-<form method="post" action="login">
+    <form method="post" action="login">
+        <%--<form method="post" action="/login2/login">--%>
 
-    <c:if test="${not empty loginMessage}">
-        <span style='color:red'>${loginMessage}</span>
+        <c:if test="${error}">
+            <div style="color:red">Invalid email or password.</div>
+        </c:if>
+
+        <c:if test="${not empty loginMessage}">
+            <span style='color:red'>${loginMessage}</span>
+            <br>
+        </c:if>
+
+        <hr>
+
+        <label>
+            Username:
+            <input type="text" name="username" value="" required>
+        </label>
         <br>
-    </c:if>
 
-    <hr>
+        <label>
+            Password:
+            <input type="password" name="password" value="" required>
+        </label>
+        <br>
 
-    <label>
-        Username:
-        <input type="text" name="username" required>
-    </label>
-    <br>
-
-    <label>
-        Password:
-        <input type="password" name="password" required>
-    </label>
-    <br>
-
-    <input type="submit" name="login" value="Login">
-</form>
-
+        <input type="submit" name="login" value="Login">
+    </form>
+</main>
 </body>
 </html>

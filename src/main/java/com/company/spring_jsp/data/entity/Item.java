@@ -15,11 +15,11 @@ import javax.persistence.*;
 @Table(name = "items")
 public class Item {
 
-    enum Gender {
+    public enum Gender {
         MEN, WOMEN, UNISEX, KIDS
     }
 
-    enum Category {
+    public enum Category {
         CASUAL, RUNNING, HIKING, TRAINING, BASKETBALL, BOOTS, SANDALS
     }
 

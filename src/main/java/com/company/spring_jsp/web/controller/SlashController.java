@@ -1,19 +1,16 @@
 package com.company.spring_jsp.web.controller;
 
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@PreAuthorize("hasAuthority('ADMIN')")
-@RequestMapping("/admin")
-public class AdminController {
+public class SlashController {
 
-    @RequestMapping("/protected")
+    @RequestMapping(value = { "/", "/index", "/index.html" })
     public ModelAndView slash() {
         ModelAndView response = new ModelAndView();
-        response.setViewName("admin/protected");
+        response.setViewName("index");
         return response;
     }
 }

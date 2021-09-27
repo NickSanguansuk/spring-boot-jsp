@@ -6,6 +6,7 @@ import com.company.spring_jsp.data.entity.UserRole;
 import com.company.spring_jsp.web.form.CreateUser2Form;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
@@ -21,7 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-@RequestMapping("/login2")
+@RequestMapping("/login")
 //@PreAuthorize("hasAnyAuthority('ADMIN', 'ANOTHER')")
 public class Login2Controller {
 
@@ -31,6 +32,9 @@ public class Login2Controller {
 
     @Autowired
     private UserDao userDao;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     // Constructors
     public Login2Controller() {
@@ -89,7 +93,8 @@ public class Login2Controller {
         user.setFirstName(form.getFirstName());
         user.setLastName(form.getLastName());
         user.setEmail(form.getEmail());
-        user.setPassword(form.getPassword());
+        //user.setPassword(form.getPassword());
+        user.setPassword(passwordEncoder.encode(form.getPassword()));
         user.setPhone(form.getPhone());
         user.setAddress(form.getAddress());
         user.setCity(form.getCity());

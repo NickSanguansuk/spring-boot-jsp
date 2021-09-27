@@ -2,12 +2,18 @@ package com.company.spring_jsp.config;
 
 import com.company.spring_jsp.security.AuthenticationFailureHandlerImpl;
 import com.company.spring_jsp.security.AuthenticationSuccessHandlerImpl;
+import com.company.spring_jsp.security.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
 @EnableWebSecurity
@@ -19,6 +25,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     private AuthenticationFailureHandlerImpl failureHandler;
+
+    @Autowired
+    private UserDetailsServiceImpl userDetailsService;
 
     protected void configure(final HttpSecurity http) throws Exception {
 
@@ -35,6 +44,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .formLogin()
                     .loginPage("/login/login")
                     .loginProcessingUrl("/login/login")
+                    //.successForwardUrl("/inbox") // Not working
                     .successHandler(successHandler)
                     .failureHandler(failureHandler)
                     .and()
@@ -51,9 +61,25 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .exceptionHandling()
                     //.authenticationEntryPoint(getApplicationContext())
                     .accessDeniedPage("/error/404");
-
-
     }
 
+    @Bean
+    public DaoAuthenticationProvider getAuthenticationProvider() {
+        DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
+        authProvider.setUserDetailsService(userDetailsService);
+        authProvider.setPasswordEncoder(getPasswordEncoder());
+        return authProvider;
+    }
+
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.userDetailsService(userDetailsService);
+        auth.authenticationProvider(getAuthenticationProvider());
+    }
+
+    @Bean(name="passwordEncoder")
+    public PasswordEncoder getPasswordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
 
 }

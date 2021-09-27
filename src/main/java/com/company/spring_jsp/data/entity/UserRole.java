@@ -18,8 +18,8 @@ import javax.persistence.*;
 })
 public class UserRole {
 
-    enum Role {
-        ADMIN, CUSTOMER
+    public enum Role {
+        ADMIN, USER
     }
 
     // Data

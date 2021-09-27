@@ -11,6 +11,7 @@
 <body>
 <main>
     <h1>Spring_Boot_JSP - demo/index.jsp</h1>
+    <h2>This is the index page for your case study. Where users come when they hit the / url</h2>
     url parameter
     <br>
     name = ${name}
@@ -25,7 +26,12 @@
         <br>
         <input type="submit">
     </form>
+    <br>
 
+    <a href="login/login">---> Go to "login/login" Page</a>
+    <br>
+    <a href="login/create-user">---> Go to "login/create-user" Page</a>
+    <br>
 </main>
 </body>
 </html>

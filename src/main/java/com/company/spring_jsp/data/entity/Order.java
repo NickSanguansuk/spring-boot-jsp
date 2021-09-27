@@ -18,7 +18,7 @@ import java.util.List;
 })
 public class Order {
 
-    enum Status {
+    public enum Status {
         IN_PROCESS, ON_HOLD, SHIPPED, DELIVERED, CANCELLED
     }
 

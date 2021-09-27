@@ -19,7 +19,7 @@ public class AuthenticationFailureHandlerImpl implements AuthenticationFailureHa
 	
 	@Override
 	public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response, AuthenticationException exception) throws IOException {
-		System.out.println("########## LOGIN FAILURE ##########" + exception.getMessage());
+		System.out.println("########## LOGIN FAILURE ########## " + exception.getMessage());
 
 		//LOG.info(exception.getMessage());
 		//

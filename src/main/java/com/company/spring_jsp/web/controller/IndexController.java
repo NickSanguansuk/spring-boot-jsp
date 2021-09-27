@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 @Controller
-@RequestMapping(value = "/index")
+@RequestMapping(value = "/indexExample")
 public class IndexController {
 
     @RequestMapping(value = "/test")
@@ -25,6 +25,7 @@ public class IndexController {
     //    return result;
     //}
 
+    // URL: http://localhost:8080/indexExample/username/WasinSang
     //@RequestMapping(value = "/username/{name}", method = RequestMethod.GET)
     @GetMapping(value = "/username/{name}")
     public ModelAndView slashGet(@PathVariable String name, HttpServletRequest request, HttpSession session) {
@@ -40,7 +41,7 @@ public class IndexController {
         return result;
     }
 
-    // URL: http://localhost:8080/index/hello?name=Wasin&id=1234
+    // URL: http://localhost:8080/indexExample/hello?name=Wasin&id=1234
     @RequestMapping(value = "/hello", method = RequestMethod.GET)
     public ModelAndView indexHello(@RequestParam(required = false) String name,
                                     @RequestParam(required = true) Integer id) {
@@ -55,7 +56,7 @@ public class IndexController {
         return result;
     }
 
-    // URL: http://localhost:8080/index/submit?name=Wasin&id=1234
+    // URL: http://localhost:8080/indexExample/submit?name=Wasin&id=1234
     @RequestMapping(value = "/submit", method = RequestMethod.GET)
     public ModelAndView indexSubmit(@RequestParam(required = false) String name,
                                     @RequestParam(required = false) Integer id) {
