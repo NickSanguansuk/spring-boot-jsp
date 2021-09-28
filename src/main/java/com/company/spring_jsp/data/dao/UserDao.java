@@ -16,6 +16,9 @@ public interface UserDao extends JpaRepository<User, Long> {
 
     User findUserByEmail(@Param("email") String email);
 
+    @Query("SELECT u FROM User u WHERE lower(u.email) like lower(concat('%', :email, '%'))")
+    List<User> findUsersByEmailContains(@Param("email") String email);
+
     //User findUserByConfirmEmailToken(@Param("confirmEmailToken") String confirmEmailToken);
 
     @Query(value = "SELECT u FROM User u WHERE u.firstName = :firstNameIn AND u.lastName = :lastNameIn")
