@@ -22,14 +22,14 @@ public class OrderDetail {
 
     //@Column(name = "orderId")
     //private Integer orderId;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @MapsId("orderIdKey")
     @JoinColumn(name = "order_id", nullable = false)
     private Order orderObject;
 
     //@Column(name = "productId")
     //private Integer productId;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @MapsId("productIdKey")
     @JoinColumn(name = "product_id", nullable = false)
     private Product productObject;
