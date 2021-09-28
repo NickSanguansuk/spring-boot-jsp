@@ -43,7 +43,7 @@ public class Item {
     @Enumerated(EnumType.STRING)
     private Category category;
 
-    @Column(name = "star_rating", columnDefinition = "decimal", precision = 2, scale = 1)
+    @Column(name = "star_rating", columnDefinition = "DECIMAL", precision = 2, scale = 1)
     private Double starRating;
 
     @Column(name = "review_count")

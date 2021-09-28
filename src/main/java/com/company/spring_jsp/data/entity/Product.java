@@ -27,10 +27,10 @@ public class Product {
     @Column(name = "color", nullable = false)
     private String color;
 
-    @Column(name = "size", nullable = false, columnDefinition = "decimal", precision = 3, scale = 1)
+    @Column(name = "size", nullable = false, columnDefinition = "DECIMAL", precision = 3, scale = 1)
     private Double size;
 
-    @Column(name = "price", nullable = false, columnDefinition = "decimal", precision = 10, scale = 2)
+    @Column(name = "price", nullable = false, columnDefinition = "DECIMAL", precision = 10, scale = 2)
     private Double price;
 
     @Column(name = "availability", nullable = false)
