@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.PostConstruct;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.io.IOException;
@@ -51,8 +52,8 @@ public class Login2Controller {
     }
 
     @RequestMapping(value = "/create-user", method = RequestMethod.GET)
-    public ModelAndView createUserGet() {
-        System.out.println("Create User 2 page using GET.");
+    public ModelAndView createUserGet(HttpServletRequest request) {
+        System.out.println("Method: " + request.getMethod() + "\t\tURI: " + request.getRequestURI());
 
         ModelAndView result = new ModelAndView("login2/create-user-2-jsp");
 
@@ -63,8 +64,8 @@ public class Login2Controller {
 
     @RequestMapping(value = "/create-user", method = RequestMethod.POST)
     //@PreAuthorize("hasAnyAuthority('ADMIN', 'ANOTHER')")
-    public ModelAndView createUserPost(@Valid CreateUser2Form form, BindingResult bindingResult, HttpSession session) throws IOException {
-        System.out.println("Create User 2 page using POST.");
+    public ModelAndView createUserPost(HttpServletRequest request, @Valid CreateUser2Form form, BindingResult bindingResult, HttpSession session) throws IOException {
+        System.out.println("Method: " + request.getMethod() + "\t\tURI: " + request.getRequestURI());
 
         ModelAndView result = new ModelAndView("login2/create-user-2-jsp");
         //ModelAndView result = createUserGet();
@@ -116,9 +117,9 @@ public class Login2Controller {
         return result;
     }
 
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public ModelAndView loginGet() {
-        System.out.println("Login 2 page using GET.");
+    @RequestMapping(value = "login", method = RequestMethod.GET)
+    public ModelAndView loginGet(HttpServletRequest request) {
+        System.out.println("Method: " + request.getMethod() + "\t\tURI: " + request.getRequestURI());
 
         ModelAndView result = new ModelAndView("login2/login-2-jsp");
 
@@ -157,8 +158,8 @@ public class Login2Controller {
     //}
 
     @RequestMapping(value = "/inbox", method = RequestMethod.GET)
-    public ModelAndView inboxGet(HttpSession session) {
-        System.out.println("Inbox 2 page using GET.");
+    public ModelAndView inboxGet(HttpServletRequest request, HttpSession session) {
+        System.out.println("Method: " + request.getMethod() + "\t\tURI: " + request.getRequestURI());
 
         ModelAndView result = new ModelAndView("login2/inbox-2-jsp");
 
@@ -177,8 +178,8 @@ public class Login2Controller {
     }
 
     @RequestMapping(value = "/inbox", method = RequestMethod.POST)
-    public ModelAndView inboxPost(HttpSession session) {
-        System.out.println("Inbox 2 page using POST.");
+    public ModelAndView inboxPost(HttpServletRequest request, HttpSession session) {
+        System.out.println("Method: " + request.getMethod() + "\t\tURI: " + request.getRequestURI());
 
         ModelAndView result = new ModelAndView("login2/inbox-2-jsp");
 
@@ -186,8 +187,8 @@ public class Login2Controller {
     }
 
     @RequestMapping(value = "/logout", method = RequestMethod.GET)
-    public ModelAndView logoutGet(HttpSession session) {
-        System.out.println("Logout 2 page using GET.");
+    public ModelAndView logoutGet(HttpServletRequest request, HttpSession session) {
+        System.out.println("Method: " + request.getMethod() + "\t\tURI: " + request.getRequestURI());
 
         session.invalidate();
         ModelAndView result = new ModelAndView("redirect:login");

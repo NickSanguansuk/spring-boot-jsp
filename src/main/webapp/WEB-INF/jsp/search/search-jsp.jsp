@@ -5,8 +5,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Search Page</title>
+    <title>Search Search Page</title>
     <%--<link rel="stylesheet" type="text/css" href="css/styles.css">--%>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/styles-search-search.css">
+    <%--<style>--%>
+    <%--    h1 {--%>
+    <%--        color: blue;--%>
+    <%--    }--%>
+    <%--</style>--%>
     <%--<script type="text/javascript" src="js/script.js" defer></script>--%>
 </head>
 <body>
@@ -15,7 +21,8 @@
 </header>
 <main>
     <section>
-        <h1>Search Page</h1>
+        <%--<h1 style="color:blue">Search Page</h1>--%>
+        <h1>Search Search Page</h1>
         <p>This page is for searching.</p>
         <br>
     </section>
@@ -36,7 +43,8 @@
                 <h3>No results found.</h3>
             </c:when>
             <c:otherwise>
-                <table border="1" cellpadding="3">
+                <%--<table border="1" cellpadding="3">--%>
+                <table class="search-result-table">
                     <tr>
                         <th><b>ID</b></th>
                         <th><b>First Name</b></th>
@@ -64,7 +72,7 @@
                             <td>${user.state}</td>
                             <td>${user.zipCode}</td>
                             <td>${user.userRoles}</td>
-                            <td><a href="search/detail?id=${user.id}">Details</a></td>
+                            <td><a href="detail?id=${user.id}">Details</a></td>
                         </tr>
                     </c:forEach>
                 </table>

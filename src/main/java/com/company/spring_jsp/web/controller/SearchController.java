@@ -21,9 +21,9 @@ public class SearchController {
     @Autowired
     private UserDao userDao;
 
-    @RequestMapping("")
+    @RequestMapping("/search")
     public ModelAndView searchGetOrPost(HttpServletRequest request, @RequestParam(required = false) String searchText) {
-        System.out.println("URI: " + request.getRequestURI() + "\tMethod: " + request.getMethod());
+        System.out.println("Method: " + request.getMethod() + "\t\tURI: " + request.getRequestURI());
 
         //// Testing
         //System.out.println(request.getRequestURL());
@@ -47,7 +47,7 @@ public class SearchController {
 
     @RequestMapping("/detail")
     public ModelAndView detailGetOrPost(HttpServletRequest request, @RequestParam(required = true) Integer id) throws Exception {
-        System.out.println("URI: " + request.getRequestURI() + "\tMethod: " + request.getMethod());
+        System.out.println("Method: " + request.getMethod() + "\t\tURI: " + request.getRequestURI());
 
         ModelAndView result = new ModelAndView();
         result.setViewName("search/detail-jsp");
