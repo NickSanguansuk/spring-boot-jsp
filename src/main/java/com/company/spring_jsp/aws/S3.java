@@ -39,8 +39,9 @@ public class S3 {
                 .withCredentials(provider)
                 .build();
 
-		System.out.println("aws.S3 init() ---> Testing AWS");
-		// Do AWS testing here
+		// Testing AWS here
+		System.out.println("########## aws.S3 init() ---> Testing AWS here ##########");
+
 	}
 
 	public boolean fileExists(String bucket, String imagePath) {
