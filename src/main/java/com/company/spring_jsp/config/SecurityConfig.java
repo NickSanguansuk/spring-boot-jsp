@@ -29,6 +29,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private UserDetailsServiceImpl userDetailsService;
 
+    @Override
     protected void configure(final HttpSecurity http) throws Exception {
 
         http
@@ -43,7 +44,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     .and()
                 .formLogin()
                     .loginPage("/login/login")
-                    .loginProcessingUrl("/login/login")
+                    //.loginProcessingUrl("/login/login")
+                    .loginProcessingUrl("/login/j_security_check")
                     .successForwardUrl("/login/inbox")
                     //.successHandler(successHandler)
                     .failureHandler(failureHandler)

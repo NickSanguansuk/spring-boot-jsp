@@ -19,8 +19,8 @@
         <p>Please login here.</p>
     </section>
     <section>
-        <form method="post" action="login">
-            <%--<form method="post" action="/login2/login">--%>
+        <%--<form method="post" action="login">--%>
+        <form method="post" action="j_security_check">
 
             <c:if test="${error}">
                 <div style="color:red">Invalid email or password.</div>

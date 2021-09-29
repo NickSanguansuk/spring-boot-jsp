@@ -11,12 +11,12 @@
 </head>
 <body>
 <header>
-
+    <jsp:include page="include/header.jsp" />
 </header>
 <main>
     <section>
         <h1>Spring_Boot_JSP - demo/index.jsp</h1>
-        <h2>This is the index page for your case study. Where users come when they hit the / url</h2>
+        <h3>This is the index page for your case study. Where users come when they hit the / url</h3>
     </section>
     <section>
         url parameter
@@ -44,7 +44,7 @@
     </section>
 </main>
 <footer>
-
+    <jsp:include page="include/footer.jsp" />
 </footer>
 </body>
 </html>

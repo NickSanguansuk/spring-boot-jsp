@@ -15,10 +15,10 @@
 </header>
 <main>
     <section>
-        <h1>admin/protected Page</h1>
+        <h1>Admin Protected Page</h1>
     </section>
     <section>
-        <a href="logout">Logout</a>
+        <a href="../login/logout">Logout</a>
     </section>
 </main>
 <footer>
