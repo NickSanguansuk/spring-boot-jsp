@@ -3,6 +3,7 @@ package com.company.spring_jsp.web.controller;
 import com.company.spring_jsp.web.form.CreateUser2Form;
 import org.apache.commons.io.FileUtils;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -28,7 +29,7 @@ public class FileController {
     }
 
     @RequestMapping(value = "/upload", method = RequestMethod.POST)
-    public ModelAndView uploadPost(HttpServletRequest request, @RequestParam("file") MultipartFile file, @RequestParam("text") String text) throws IOException {
+    public ModelAndView uploadPost(HttpServletRequest request, @RequestParam("file") MultipartFile file, @RequestParam("text") String text, ModelMap modelMap) throws IOException {
         System.out.println("Method: " + request.getMethod() + "\t\tURI: " + request.getRequestURI());
 
         System.out.println("File size = " + file.getSize());
@@ -44,6 +45,10 @@ public class FileController {
 
         ModelAndView result = new ModelAndView();
         result.setViewName("redirect:upload");
+
+        // ???
+        modelMap.addAttribute("fileSubmitted", file);
+        result.addObject("fileSubmitted", file);
 
         return result;
     }

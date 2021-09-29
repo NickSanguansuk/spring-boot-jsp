@@ -26,9 +26,27 @@
                 <br>
                 <input type="file" name="file">
                 <br>
+                <%--<input type="file" name="file">--%>
+                <%--<br>--%>
+                <%--<input type="file" name="file">--%>
+                <%--<br>--%>
                 <input type="submit" name="submit" value="Submit">
             </label>
         </form>
+        <br>
+    </section>
+    <section>
+        <h2>Submitted File</h2>
+        <table>
+            <tr>
+                <td>OriginalFileName:</td>
+                <td>${fileSubmitted.originalFilename}</td>
+            </tr>
+            <tr>
+                <td>Type:</td>
+                <td>${fileSubmitted.contentType}</td>
+            </tr>
+        </table>
     </section>
 </main>
 <footer>
