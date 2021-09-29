@@ -25,11 +25,40 @@ public class ErrorController {
         System.out.println("Error page exception : " + getRequestURL(request));
         ex.printStackTrace();
         ModelAndView result = new ModelAndView("/error/500");
+        //String stackTrace = getHTMLStackTrace(ExceptionUtils.getStackFrames(ex));
+        //result.addObject("requestUrl", getRequestURL(request));
+        //result.addObject("message", ex.getMessage());
+        //result.addObject("stackTrace", stackTrace);
+        //if (ex.getCause() != null) {
+        //    result.addObject("rootcause", ExceptionUtils.getRootCause(ex));
+        //    String roottrace = getHTMLStackTrace(ExceptionUtils.getRootCauseStackTrace(ex));
+        //    result.addObject("roottrace", roottrace);
+        //}
+        //return result;
+
         String stackTrace = getHTMLStackTrace(ex);
         result.addObject("message", ex.getMessage());
         result.addObject("stackTrace", stackTrace);
         return result;
     }
+
+    //private String getHTMLStackTrace(String[] stack) {
+    //    //String stackTrace = ExceptionUtils.getStackTrace(ex);
+    //    //
+    //    //stackTrace = stackTrace.replaceAll("[\\r\\f\\n]+", "<br/>");
+    //    //stackTrace = stackTrace.replaceAll("\\t", " &nbsp; &nbsp; &nbsp;");
+    //    //
+    //    //return stackTrace;
+    //    StringBuffer result = new StringBuffer();
+    //    for (String frame : stack) {
+    //        if (frame.contains("perscholas")) {
+    //            result.append(" &nbsp; &nbsp; &nbsp;" + frame.trim().substring(3) + "<br>\n");
+    //        } else if (frame.contains("Caused by:")) {
+    //            result.append("Caused By:<br>");
+    //        }
+    //    }
+    //    return result.toString();
+    //}
 
     private String getHTMLStackTrace(Exception ex) {
         String stackTrace = ExceptionUtils.getStackTrace(ex);
