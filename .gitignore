@@ -158,4 +158,4 @@ buildNumber.properties
 
 
 # My Special Ignore Files
-SpringJspApplication.java
+application.properties
