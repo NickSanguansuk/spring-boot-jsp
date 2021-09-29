@@ -40,10 +40,10 @@ public class RootConfig {
         //System.out.println(outputFormat.format(user.getCreateDate()));
     }
 
-    //@Bean(name = "propertyConfigurer")
-    //public static PropertySourcesPlaceholderConfigurer getPropertyPlaceholder() {
-    //    return new PropertySourcesPlaceholderConfigurer();
-    //}
+    @Bean(name = "propertyConfigurer")
+    public static PropertySourcesPlaceholderConfigurer getPropertyPlaceholder() {
+        return new PropertySourcesPlaceholderConfigurer();
+    }
 
     @Bean(name = "multipartResolver")
     public CommonsMultipartResolver multipartResolver() {
