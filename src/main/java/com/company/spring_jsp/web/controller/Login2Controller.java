@@ -3,9 +3,13 @@ package com.company.spring_jsp.web.controller;
 import com.company.spring_jsp.data.dao.UserDao;
 import com.company.spring_jsp.data.entity.User;
 import com.company.spring_jsp.data.entity.UserRole;
+import com.company.spring_jsp.security.UserDetailsServiceImpl;
 import com.company.spring_jsp.web.form.CreateUser2Form;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -31,21 +35,30 @@ public class Login2Controller {
     // 2 Does all @Autowired
     // 3 @PostConstruct
 
-    //@Autowired
+    @Autowired
     private UserDao userDao;
 
-    //@Autowired
+    @Autowired
     private PasswordEncoder passwordEncoder;
 
+    //@Autowired
+    //private UserDetailsServiceImpl userDetailsService;
+
     // Constructors
+    // no-argument constructor
     public Login2Controller() {
-        System.out.println("In constructor, UserDao instance = " + userDao);
+        // (Testing) This one is being called.
+        System.out.println("In no-argument constructor, UserDao instance = " + userDao);
     }
 
-    @Autowired
+    // specialized constructor
+    //@Autowired
     public Login2Controller(UserDao userDao, PasswordEncoder passwordEncoder) {
         this.userDao = userDao;
         this.passwordEncoder = passwordEncoder;
+
+        // (Testing) This one is not being called.
+        System.out.println("In specialized constructor, UserDao instance = " + userDao);
     }
 
     @PostConstruct
@@ -180,6 +193,12 @@ public class Login2Controller {
             System.out.println("userInfo is null.");
             result.setViewName("redirect:login");
         }
+
+        //Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        //if (!(authentication instanceof AnonymousAuthenticationToken)) {
+        //
+        //}
+
         return result;
     }
 

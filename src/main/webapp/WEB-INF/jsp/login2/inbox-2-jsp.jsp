@@ -20,6 +20,9 @@
         <p>This is an inbox.</p>
     </section>
     <section>
+        <h2>Welcome ${welcomeUserMessage}</h2>
+    </section>
+    <section>
         <sec:authorize access="hasAuthority('USER')">
             <h2>User has USER authorization.</h2>
             <a href="../index">---> Go to "index" Page</a>
@@ -32,7 +35,7 @@
         </sec:authorize>
     </section>
     <section>
-        <h3>Welcome ${welcomeUserMessage}</h3>
+        <br>
         <a href="logout">Logout</a>
     </section>
 </main>
