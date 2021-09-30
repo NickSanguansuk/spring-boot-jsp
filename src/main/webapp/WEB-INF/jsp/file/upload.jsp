@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>File Upload Page</title>
     <%--<link rel="stylesheet" type="text/css" href="css/styles.css">--%>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/styles-file-upload.css">
     <%--<script type="text/javascript" src="js/script.js" defer></script>--%>
 </head>
 <body>
@@ -47,6 +48,9 @@
                 <td>${fileSubmitted.contentType}</td>
             </tr>
         </table>
+    </section>
+    <section>
+        <img class="uploaded-image" src="https://wasin-first-bucket.s3.us-east-2.amazonaws.com/images/${imageName}">
     </section>
 </main>
 <footer>

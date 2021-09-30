@@ -21,50 +21,49 @@ import com.amazonaws.services.s3.model.PutObjectResult;
 @Component
 public class S3 {
 
-	@Value("${amazon.aws.accesskey}")
-	private String amazonAWSAccessKey;
+    @Value("${amazon.aws.accesskey}")
+    private String amazonAWSAccessKey;
 
-	@Value("${amazon.aws.secretkey}")
-	private String amazonAWSSecretKey;
+    @Value("${amazon.aws.secretkey}")
+    private String amazonAWSSecretKey;
 
-	private AmazonS3 s3;
+    private AmazonS3 s3;
 
-	@PostConstruct
-	public void init() {
-		BasicAWSCredentials cred = new BasicAWSCredentials(amazonAWSAccessKey, amazonAWSSecretKey);
-		AWSStaticCredentialsProvider provider = new AWSStaticCredentialsProvider(cred);
-		
-		s3 = AmazonS3ClientBuilder.standard()
+    @PostConstruct
+    public void init() {
+        BasicAWSCredentials cred = new BasicAWSCredentials(amazonAWSAccessKey, amazonAWSSecretKey);
+        AWSStaticCredentialsProvider provider = new AWSStaticCredentialsProvider(cred);
+
+        s3 = AmazonS3ClientBuilder.standard()
                 .withRegion(Regions.US_EAST_2)
                 .withCredentials(provider)
                 .build();
 
-		// Testing AWS here
-		System.out.println("########## aws.S3 init() ---> Testing AWS here ##########");
+        // Testing AWS here
+        System.out.println("########## aws.S3 init() ---> Testing AWS here ##########");
 
-	}
+    }
 
-	public boolean fileExists(String bucket, String imagePath) {
-		if (imagePath.startsWith("/")) {
-			imagePath = imagePath.substring(1);
-		}
+    public boolean fileExists(String bucket, String imagePath) {
+        if (imagePath.startsWith("/")) {
+            imagePath = imagePath.substring(1);
+        }
 
-		ObjectListing objectListing = s3.listObjects(new ListObjectsRequest().withBucketName(bucket).withPrefix(imagePath));
-		//for (S3ObjectSummary objectSummary : objectListing.getObjectSummaries()) {
-		//	System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!" + objectSummary.getKey() + "(size = " + objectSummary.getSize() + ")");
-		//}
+        ObjectListing objectListing = s3.listObjects(new ListObjectsRequest().withBucketName(bucket).withPrefix(imagePath));
+        //for (S3ObjectSummary objectSummary : objectListing.getObjectSummaries()) {
+        //	System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!" + objectSummary.getKey() + "(size = " + objectSummary.getSize() + ")");
+        //}
 
-		return !objectListing.getObjectSummaries().isEmpty();
-	}
+        return !objectListing.getObjectSummaries().isEmpty();
+    }
 
-	public void writeFile(String bucketPath, String fileName, File fromFile) {
-		PutObjectRequest req = new PutObjectRequest(bucketPath, fileName, fromFile);
-		req.withCannedAcl(CannedAccessControlList.PublicRead);
-		 PutObjectResult por = s3.putObject(req);
-		//System.out.println(por);
-		
-		System.out.println("File successfully written to S3 at " + bucketPath + "/" + fileName);
-		
-	}
+    public void writeFile(String bucketPath, String fileName, File fromFile) {
+        PutObjectRequest req = new PutObjectRequest(bucketPath, fileName, fromFile);
+        req.withCannedAcl(CannedAccessControlList.PublicRead);
+        PutObjectResult por = s3.putObject(req);
+        //System.out.println(por);
+
+        System.out.println("File successfully written to S3 at " + bucketPath + "/" + fileName);
+    }
 
 }

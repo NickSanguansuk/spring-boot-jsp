@@ -1,7 +1,9 @@
 package com.company.spring_jsp.web.controller;
 
+import com.company.spring_jsp.aws.S3;
 import com.company.spring_jsp.web.form.CreateUser2Form;
 import org.apache.commons.io.FileUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +19,9 @@ import java.io.IOException;
 @Controller
 @RequestMapping("/file")
 public class FileController {
+
+    @Autowired
+    private S3 s3;
 
     @RequestMapping(value = "/upload", method = RequestMethod.GET)
     public ModelAndView uploadGet(HttpServletRequest request) {
@@ -36,19 +41,27 @@ public class FileController {
         System.out.println("File name = " + file.getOriginalFilename());
         System.out.println("Text      = " + text);
 
+        // Get the official temp directory from the OS
         String tmpDir = System.getProperty("java.io.tmpdir");
         System.out.println("Temp file path: " + tmpDir);
 
-        File targetFile = new File("e:\\abc\\" + file.getOriginalFilename());
+        // Create a target name that consists of the full path of the temp directory and the original uploaded file name
+        //File targetFile = new File("e:\\abc\\" + file.getOriginalFilename());
+        File targetFile = new File(tmpDir + File.separator + file.getOriginalFilename());
 
+        // Commons io utility that will stream the uploaded file into the target file,
+        // essentially saves it to the hard drive.
         FileUtils.copyInputStreamToFile(file.getInputStream(), targetFile);
 
-        ModelAndView result = new ModelAndView();
-        result.setViewName("redirect:upload");
+        // Use our S3 library to write the file to S3
+        s3.writeFile("wasin-first-bucket/images", file.getOriginalFilename(), targetFile);
 
-        // ???
+        ModelAndView result = new ModelAndView();
+        result.setViewName("file/upload");
+
         modelMap.addAttribute("fileSubmitted", file);
-        result.addObject("fileSubmitted", file);
+        //result.addObject("fileSubmitted", file);
+        result.addObject("imageName", file.getOriginalFilename());
 
         return result;
     }
