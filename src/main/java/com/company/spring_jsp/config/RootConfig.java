@@ -30,11 +30,11 @@ public class RootConfig {
     public void init() {
         // Setting Spring Boot SetTimeZone
         //Log.info("Server TimeZone set to " + TimeZone.getDefault().getDisplayName() + " : " + new Date());
-        System.out.println("Server TimeZone now is  " + TimeZone.getDefault().getDisplayName() + " : " + new Date());
+        System.out.println("---> Server TimeZone now is  " + TimeZone.getDefault().getDisplayName() + " : " + new Date());
         TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
-        System.out.println("Server TimeZone set to  " + TimeZone.getDefault().getDisplayName() + " : " + new Date());
+        System.out.println("---> Server TimeZone set to  " + TimeZone.getDefault().getDisplayName() + " : " + new Date());
         TimeZone.setDefault(TimeZone.getTimeZone("CST"));
-        System.out.println("Server TimeZone back to " + TimeZone.getDefault().getDisplayName() + " : " + new Date());
+        System.out.println("---> Server TimeZone back to " + TimeZone.getDefault().getDisplayName() + " : " + new Date());
 
         //Map<String, Object> tz = userDao.queryTimezone();
         //System.out.println("Database global timezone = " + tz.get("globaltz") + " : session = " + tz.get("sessiontz") + " : now = " + tz.get("now"));

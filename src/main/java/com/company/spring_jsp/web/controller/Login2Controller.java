@@ -48,7 +48,7 @@ public class Login2Controller {
     // no-argument constructor
     public Login2Controller() {
         // (Testing) This one is being called.
-        System.out.println("In no-argument constructor, UserDao instance = " + userDao);
+        System.out.println("---> In no-argument constructor, UserDao instance = " + userDao);
     }
 
     // specialized constructor
@@ -58,12 +58,12 @@ public class Login2Controller {
         this.passwordEncoder = passwordEncoder;
 
         // (Testing) This one is not being called.
-        System.out.println("In specialized constructor, UserDao instance = " + userDao);
+        System.out.println("---> In specialized constructor, UserDao instance = " + userDao);
     }
 
     @PostConstruct
     public void init() {
-        System.out.println("In @PostConstruct, UserDao instance = " + userDao);
+        System.out.println("---> In @PostConstruct, UserDao instance = " + userDao);
 
         // Testing
         List<UserRole> userRoles = userDao.getUserRolesById(1);
@@ -176,37 +176,53 @@ public class Login2Controller {
     //    return result;
     //}
 
-    @RequestMapping(value = "/inbox", method = RequestMethod.GET)
-    public ModelAndView inboxGet(HttpServletRequest request, HttpSession session) {
-        System.out.println("Method: " + request.getMethod() + "\t\tURI: " + request.getRequestURI());
+    //@RequestMapping(value = "/inbox", method = RequestMethod.GET)
+    //public ModelAndView inboxGet(HttpServletRequest request, HttpSession session) {
+    //    System.out.println("Method: " + request.getMethod() + "\t\tURI: " + request.getRequestURI());
+    //
+    //    ModelAndView result = new ModelAndView("login2/inbox-2-jsp");
+    //
+    //    if (session.getAttribute("userObject") != null) {
+    //        // user is logged in
+    //        System.out.println("userObject is not null.");
+    //        User user = (User) session.getAttribute("userObject");
+    //        String messageStr = user.getFirstName() + " " + user.getLastName() + " (" + user.getEmail() + ")";
+    //        result.addObject("welcomeUserMessage", messageStr);
+    //    } else {
+    //        // user is not logged in
+    //        System.out.println("userObject is null.");
+    //        result.setViewName("redirect:login");
+    //    }
+    //
+    //    //Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+    //    //if (!(authentication instanceof AnonymousAuthenticationToken)) {
+    //    //
+    //    //}
+    //
+    //    return result;
+    //}
 
-        ModelAndView result = new ModelAndView("login2/inbox-2-jsp");
-
-        if (session.getAttribute("userInfo") != null) {
-            // user is logged in
-            System.out.println("userInfo is not null.");
-            User user = (User) session.getAttribute("userInfo");
-            String messageStr = user.getFirstName() + " " + user.getLastName() + " (" + user.getEmail() + ")";
-            result.addObject("welcomeUserMessage", messageStr);
-        } else {
-            // user is not logged in
-            System.out.println("userInfo is null.");
-            result.setViewName("redirect:login");
-        }
-
-        //Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        //if (!(authentication instanceof AnonymousAuthenticationToken)) {
-        //
-        //}
-
-        return result;
-    }
-
-    @RequestMapping(value = "/inbox", method = RequestMethod.POST)
+    //@RequestMapping(value = "/inbox", method = RequestMethod.POST)
+    @RequestMapping(value = "/inbox")
     public ModelAndView inboxPost(HttpServletRequest request, HttpSession session) {
         System.out.println("Method: " + request.getMethod() + "\t\tURI: " + request.getRequestURI());
 
         ModelAndView result = new ModelAndView("login2/inbox-2-jsp");
+
+        // Get userObject or userEmail here
+        String currentUsername = null;
+
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (!(authentication instanceof AnonymousAuthenticationToken)) {
+            System.out.println("---> User is already logged in.");
+            currentUsername = authentication.getName();
+            User user = userDao.findUserByEmail(currentUsername);
+            String messageStr = user.getFirstName() + " " + user.getLastName() + " (" + user.getEmail() + ")";
+            result.addObject("welcomeUserMessage", messageStr);
+        } else {
+            System.out.println("---> User needs to log in first.");
+            result.setViewName("redirect:login");
+        }
 
         return result;
     }
