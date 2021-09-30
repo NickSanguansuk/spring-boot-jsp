@@ -31,15 +31,21 @@ public class Login2Controller {
     // 2 Does all @Autowired
     // 3 @PostConstruct
 
-    @Autowired
+    //@Autowired
     private UserDao userDao;
 
-    @Autowired
+    //@Autowired
     private PasswordEncoder passwordEncoder;
 
     // Constructors
     public Login2Controller() {
         System.out.println("In constructor, UserDao instance = " + userDao);
+    }
+
+    @Autowired
+    public Login2Controller(UserDao userDao, PasswordEncoder passwordEncoder) {
+        this.userDao = userDao;
+        this.passwordEncoder = passwordEncoder;
     }
 
     @PostConstruct

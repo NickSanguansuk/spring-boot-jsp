@@ -4,6 +4,7 @@ import java.io.File;
 
 import javax.annotation.PostConstruct;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -28,6 +29,10 @@ public class S3 {
     private String amazonAWSSecretKey;
 
     private AmazonS3 s3;
+
+    ////@Autowired
+    //public S3() {
+    //}
 
     @PostConstruct
     public void init() {
