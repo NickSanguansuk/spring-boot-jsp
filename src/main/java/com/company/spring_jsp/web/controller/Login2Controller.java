@@ -12,6 +12,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,11 +28,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
+//@Service
 @RequestMapping("/login")
 //@PreAuthorize("hasAnyAuthority('ADMIN', 'ANOTHER')")
 public class Login2Controller {
 
-    // 1 Finds all objects with annotations
+    // 1 Finds all objects with annotations and instantiate the class
     // 2 Does all @Autowired
     // 3 @PostConstruct
 
