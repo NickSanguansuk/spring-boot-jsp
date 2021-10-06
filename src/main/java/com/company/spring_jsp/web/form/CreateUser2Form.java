@@ -10,6 +10,8 @@ import javax.validation.constraints.Size;
 @TwoFieldsAreEqual(fieldOneName = "confirmPassword", fieldTwoName = "password", message = "Password and Confirm Password must be the same.")
 public class CreateUser2Form {
     // Data
+    private Integer id;
+
     @NotEmpty(message = "First Name cannot be empty.")
     private String firstName;
 
@@ -56,6 +58,14 @@ public class CreateUser2Form {
     }
 
     // Getters and Setters
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     public String getFirstName() {
         return firstName;
     }
