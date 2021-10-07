@@ -133,12 +133,12 @@ public class Login2Controller {
 
         // Go to the next page
         session.setAttribute("userInfo", user);
-        result.setViewName("redirect:inbox");
+        result.setViewName("redirect:/login/inbox");
 
         return result;
     }
 
-    @RequestMapping(value = "login", method = RequestMethod.GET)
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
     public ModelAndView loginGet(HttpServletRequest request) {
         System.out.println("Method: " + request.getMethod() + "\t\tURI: " + request.getRequestURI());
 
@@ -223,19 +223,19 @@ public class Login2Controller {
             result.addObject("welcomeUserMessage", messageStr);
         } else {
             System.out.println("---> User needs to log in first.");
-            result.setViewName("redirect:login");
+            result.setViewName("redirect:/login/login");
         }
 
         return result;
     }
 
-    @RequestMapping(value = "/logout", method = RequestMethod.GET)
-    public ModelAndView logoutGet(HttpServletRequest request, HttpSession session) {
-        System.out.println("Method: " + request.getMethod() + "\t\tURI: " + request.getRequestURI());
-
-        session.invalidate();
-        ModelAndView result = new ModelAndView("redirect:login");
-        return result;
-    }
+    //@RequestMapping(value = "/logout", method = RequestMethod.GET)
+    //public ModelAndView logoutGet(HttpServletRequest request, HttpSession session) {
+    //    System.out.println("Method: " + request.getMethod() + "\t\tURI: " + request.getRequestURI());
+    //
+    //    session.invalidate();
+    //    ModelAndView result = new ModelAndView("redirect:login");
+    //    return result;
+    //}
 
 }

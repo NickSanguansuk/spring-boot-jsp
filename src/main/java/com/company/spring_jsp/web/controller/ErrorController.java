@@ -7,27 +7,32 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 
 @Controller
 @ControllerAdvice
 public class ErrorController {
 
-    @RequestMapping(value = "/error/404")
-    public String error404(HttpServletRequest request) {
-        System.out.println("########## ########## public String error404(HttpServletRequest request) ########## ##########");
-
-        String originalUri = (String) request.getAttribute("javax.servlet.forward.request_uri");
-        System.out.println("Requested URL not found : " + request.getMethod() + " " + originalUri);
-        return "error/404";
-    }
+    //@RequestMapping(value = "/error/404")
+    //public String error404(HttpServletRequest request) {
+    //    System.out.println("########## ########## public String error404(HttpServletRequest request) ########## ##########");
+    //
+    //    String originalUri = (String) request.getAttribute("javax.servlet.forward.request_uri");
+    //    System.out.println("Requested URL not found : " + request.getMethod() + " " + originalUri);
+    //    return "error/404";
+    //}
 
     @ExceptionHandler(Exception.class)
     public ModelAndView handleAllException(HttpServletRequest request, Exception ex) {
         System.out.println("########## ########## public ModelAndView handleAllException(HttpServletRequest request, Exception ex) ########## ##########");
 
-        System.out.println("Error page exception : " + getRequestURL(request));
+        System.out.println("---> Error page exception : " + getRequestURL(request));
         ex.printStackTrace();
+
+        Object status = request.getAttribute(RequestDispatcher.ERROR_STATUS_CODE);
+        System.out.println("---> " + status);
+
         ModelAndView result = new ModelAndView("error/500");
         String stackTrace = getHTMLStackTrace(ExceptionUtils.getStackFrames(ex));
         result.addObject("requestUrl", getRequestURL(request));
