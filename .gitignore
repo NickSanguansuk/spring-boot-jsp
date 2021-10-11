@@ -159,3 +159,6 @@ buildNumber.properties
 
 # My Special Ignore Files
 application.properties
+Note.txt
+unused_folder
+

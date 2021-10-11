@@ -1,4 +1,4 @@
-package com.company.spring_jsp.config;
+package com.company.spring_jsp.webservices.config;
 
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.ApplicationContext;

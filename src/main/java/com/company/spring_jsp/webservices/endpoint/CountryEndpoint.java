@@ -13,7 +13,7 @@ import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 public class CountryEndpoint {
     private static final String NAMESPACE_URI = "http://company.com/spring_jsp/webservices/country";
 
-    private CountryRepository countryRepository;
+    private final CountryRepository countryRepository;
 
     @Autowired
     public CountryEndpoint(CountryRepository countryRepository) {
