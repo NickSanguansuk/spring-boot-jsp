@@ -1,5 +1,6 @@
 package com.company.spring_jsp.data.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.Setter;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
@@ -59,6 +60,7 @@ public class Order {
     //        inverseJoinColumns = @JoinColumn(name = "productId"))
     //List<Product> productsInOrder;
 
+    @JsonManagedReference
     @OneToMany(mappedBy = "orderObject", fetch = FetchType.LAZY)
     private List<OrderDetail> orderDetails;
 

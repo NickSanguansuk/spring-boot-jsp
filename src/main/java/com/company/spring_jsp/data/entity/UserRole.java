@@ -2,6 +2,7 @@ package com.company.spring_jsp.data.entity;
 
 //import jakarta.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;
 import lombok.Setter;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
@@ -31,6 +32,7 @@ public class UserRole {
     //@Column(name = "userId")
     //private Integer userId;
 
+    @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
     private User userObject;

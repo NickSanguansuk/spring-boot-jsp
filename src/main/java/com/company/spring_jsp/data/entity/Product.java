@@ -2,6 +2,7 @@ package com.company.spring_jsp.data.entity;
 
 //import jakarta.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.Setter;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
@@ -39,6 +40,7 @@ public class Product {
     //@ManyToMany(mappedBy = "productsInOrder")
     //List<Order> orders;
 
+    @JsonManagedReference
     @OneToMany(mappedBy = "productObject", fetch = FetchType.LAZY)
     private List<OrderDetail> orderDetails;
 

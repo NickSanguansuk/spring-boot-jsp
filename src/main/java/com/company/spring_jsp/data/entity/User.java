@@ -2,6 +2,7 @@ package com.company.spring_jsp.data.entity;
 
 //import jakarta.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -74,6 +75,7 @@ public class User {
     private String zipCode;
 
     //@Basic(fetch = FetchType.LAZY)
+    @JsonManagedReference
     @OneToMany(mappedBy = "userObject", fetch = FetchType.LAZY)
     //@OneToMany(targetEntity = UserRole.class) // Error
     private List<UserRole> userRoles = new ArrayList<>();

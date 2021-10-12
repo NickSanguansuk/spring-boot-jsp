@@ -1,5 +1,6 @@
 package com.company.spring_jsp.data.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;
 import lombok.Setter;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
@@ -22,6 +23,7 @@ public class OrderDetail {
 
     //@Column(name = "orderId")
     //private Integer orderId;
+    @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY)
     @MapsId("orderIdKey")
     @JoinColumn(name = "order_id", nullable = false)
@@ -29,6 +31,7 @@ public class OrderDetail {
 
     //@Column(name = "productId")
     //private Integer productId;
+    @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY)
     @MapsId("productIdKey")
     @JoinColumn(name = "product_id", nullable = false)

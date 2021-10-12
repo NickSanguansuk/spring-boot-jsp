@@ -15,8 +15,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.PostConstruct;
@@ -94,10 +96,11 @@ public class Login2Controller {
         // Form validation
         result.addObject("form", form);
 
-        System.out.println("form: " + form.toString());
+        System.out.println("---> form: " + form.toString());
 
         if (bindingResult.hasErrors()) {
             List<String> errorMessages = new ArrayList<>();
+
             for (FieldError error : bindingResult.getFieldErrors()) {
                 System.out.println(error.getField() + " = " + error.getDefaultMessage());
                 errorMessages.add(error.getDefaultMessage());
@@ -123,13 +126,11 @@ public class Login2Controller {
         user.setState(form.getState());
         user.setZipCode(form.getZipCode());
 
-        System.out.println(user);
+        System.out.println("---> user: " + user);
 
         userDao.save(user); // This line is magic
 
-        System.out.println("Added new User to the Database.");
-
-        // Save to database next
+        System.out.println("---> Added new User to the Database.");
 
         // Go to the next page
         session.setAttribute("userInfo", user);
