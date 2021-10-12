@@ -30,7 +30,7 @@ public class CreateUser2Form {
     @Size(min = 8, max = 25, message = "Password must be between 8 and 25 characters.")
     @Pattern(regexp = "(?=.*[0-9]).+", message = "Password must contain at least on digit, 0 through 9.")
     @Pattern(regexp = "(?=.*[a-z]).+", message = "Password must contain at least one lowercase letter.")
-    @Pattern(regexp = "(?=.*[A-Z]).+", message = "Password must contain at least one lowercase letter.")
+    @Pattern(regexp = "(?=.*[A-Z]).+", message = "Password must contain at least one uppercase letter.")
     @Pattern(regexp = "(?=.*[!@#\\$%\\^&\\*]).+", message = "Password must contain at least one special character, ! @ # $ % ^ & *.")
     private String password;
 

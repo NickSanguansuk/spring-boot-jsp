@@ -71,7 +71,7 @@ public class Login2Controller {
 
         // Testing
         List<UserRole> userRoles = userDao.getUserRolesById(1);
-        //System.out.println(userRoles);
+        System.out.println("---> " + userRoles);
     }
 
     @RequestMapping(value = "/create-user", method = RequestMethod.GET)
